@@ -6,8 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 
-[node name="Player" type="CharacterBody2D" unique_id=755443864]
+[node name="Player" type="CharacterBody2D" unique_id=755443864 node_paths=PackedStringArray("attack_cooldown")]
 script = ExtResource("1_3vyb7")
+attack_cooldown = NodePath("AttackCooldown")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=385460180]
 scale = Vector2(20, 20)
@@ -15,3 +16,8 @@ texture = SubResource("CanvasTexture_u8vuu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463308031]
 shape = SubResource("RectangleShape2D_u8vuu")
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1620404941]
+one_shot = true
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
