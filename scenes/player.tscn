@@ -1,23 +1,28 @@
 [gd_scene format=3 uid="uid://2ttqnudftpyd"]
 
 [ext_resource type="Script" uid="uid://b2iacrs86udg5" path="res://scripts/player.gd" id="1_3vyb7"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_u8vuu"]
+[ext_resource type="Texture2D" uid="uid://b73phxracx7i4" path="res://assets/Player.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
+size = Vector2(13.5, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=755443864 node_paths=PackedStringArray("attack_cooldown")]
 script = ExtResource("1_3vyb7")
 attack_cooldown = NodePath("AttackCooldown")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=385460180]
-scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_u8vuu")
+[node name="Sprite" type="Sprite2D" parent="." unique_id=385460180]
+texture = ExtResource("2_g2els")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463308031]
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=463308031]
+position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1620404941]
 one_shot = true
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1835934677]
+zoom = Vector2(4, 4)
+process_callback = 0
+position_smoothing_enabled = true
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
