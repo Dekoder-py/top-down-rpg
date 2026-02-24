@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@export var attack_cooldown: Timer
+@onready var attack_cooldown: Timer = $AttackCooldown
 
-const SPEED = 300.0
+const SPEED = 100.0
 
 var can_attack: bool = true
 
 func _process(_delta: float) -> void:
-	if can_attack: # TODO: and key pressed attack
+	if can_attack and Input.is_action_just_pressed("attack"):
 		print("attacked") # TODO: add actual attack
 		can_attack = false
 		attack_cooldown.start()

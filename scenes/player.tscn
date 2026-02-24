@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(13.5, 14)
 
-[node name="Player" type="CharacterBody2D" unique_id=755443864 node_paths=PackedStringArray("attack_cooldown")]
+[node name="Player" type="CharacterBody2D" unique_id=755443864]
 script = ExtResource("1_3vyb7")
-attack_cooldown = NodePath("AttackCooldown")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=385460180]
 texture = ExtResource("2_g2els")
