@@ -18,6 +18,10 @@ func _physics_process(_delta: float) -> void:
 	var x_direction := Input.get_axis("left", "right")
 	if x_direction:
 		velocity.x = x_direction * SPEED
+		if x_direction < 0:
+			$Sprite.flip_h = true
+		else:
+			$Sprite.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
