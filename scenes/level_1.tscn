@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://dl40jhxobejbm"]
 
 [ext_resource type="PackedScene" uid="uid://2ttqnudftpyd" path="res://scenes/player.tscn" id="1_014kd"]
+[ext_resource type="Script" uid="uid://cy1v41kfrbf0f" path="res://scripts/tilemaps.gd" id="1_bswci"]
 
 [node name="Level1" type="Node2D" unique_id=257122541]
 
-[node name="GroundTileMap" type="TileMapLayer" parent="." unique_id=1137228820]
+[node name="Tilemaps" type="Node2D" parent="." unique_id=942583911 node_paths=PackedStringArray("world_map_layer")]
+script = ExtResource("1_bswci")
+world_map_layer = NodePath("WorldMapLayer")
+
+[node name="WorldMapLayer" type="TileMapLayer" parent="Tilemaps" unique_id=1137228820]
 
 [node name="Player" parent="." unique_id=755443864 instance=ExtResource("1_014kd")]
